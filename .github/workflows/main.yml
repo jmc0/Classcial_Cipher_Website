@@ -50,7 +50,9 @@ jobs:
       - name: Install dependencies venv
         working-directory: ./backend
         #if: steps.cache-pipenv.outputs.cache-hit != 'true'
-        run: pipenv install
+        run: |
+          pipenv install
+          pip install zappa
 
       - name: Configure AWS profile
         working-directory: ./backend
