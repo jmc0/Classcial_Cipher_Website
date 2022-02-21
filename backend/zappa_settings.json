@@ -5,7 +5,6 @@
         "profile_name": "default",
         "project_name": "backend",
         "runtime": "python3.9",
-        "s3_bucket": "crypto-monster",
-        "cors": true
+        "s3_bucket": "zappa-cryptomonster"
     }
 }
