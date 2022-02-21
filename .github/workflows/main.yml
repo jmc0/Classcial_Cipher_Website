@@ -39,17 +39,17 @@ jobs:
           sudo apt-get install libpq-dev -y
           pip install pipenv
 
-      - name: Cache pipenv virtualenv
-        working-directory: ./backend
-        id: cache-pipenv
-        uses: actions/cache@v1
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+      # - name: Cache pipenv virtualenv
+      #   working-directory: ./backend
+      #   id: cache-pipenv
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.local/share/virtualenvs
+      #     key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
 
       - name: Install dependencies venv
         working-directory: ./backend
-        if: steps.cache-pipenv.outputs.cache-hit != 'true'
+        #if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: pipenv install
 
       - name: Configure AWS profile
